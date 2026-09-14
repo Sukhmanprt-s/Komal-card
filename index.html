@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komal's Birthday Card</title>
+    
+    <!-- Elegant Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS to ensure perfect A4 printing */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact; /* Ensures colors print accurately */
+            print-color-adjust: exact;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            color: #3b3b3b;
+        }
+
+        /* Each A4 Sheet */
+        .a4-sheet {
+            width: 297mm;
+            height: 210mm;
+            display: flex;
+            page-break-after: always;
+            background: #fdfbfb; /* Very soft, ethereal off-white */
+            position: relative;
+        }
+
+        /* The Fold Line (Invisible in print, just for reference) */
+        .fold-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: repeating-linear-gradient(to bottom, transparent, transparent 5px, rgba(0,0,0,0.05) 5px, rgba(0,0,0,0.05) 10px);
+        }
+
+        /* Each Side of the Folded Card (A5 Size) */
+        .panel {
+            width: 50%;
+            height: 100%;
+            padding: 40mm 20mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Typography Styling */
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 32pt;
+            color: #2c2c2c;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #b76e79;
+            font-size: 20pt;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+
+        .shayari {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            font-size: 16pt;
+            line-height: 2.2;
+            color: #4a4a4a;
+        }
+
+        .message-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 13pt;
+            line-height: 1.8;
+            color: #4a4a4a;
+            text-align: left;
+            width: 85%;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24pt;
+            color: #b76e79;
+            text-align: right;
+            width: 85%;
+            margin-top: 30px;
+        }
+
+        /* QR Code Styling */
+        .qr-container {
+            margin-bottom: 20px;
+        }
+        
+        .qr-container img {
+            width: 45mm;
+            height: 45mm;
+            border: 1px solid #d4af37;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .qr-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10pt;
+            color: #b76e79;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: OUTSIDE OF THE CARD -->
+    <!-- When folded, the left side is the Back Cover, the right side is the Front Cover -->
+    <div class="a4-sheet">
+        <div class="fold-line"></div>
+        
+        <!-- BACK COVER (QR Code) -->
+        <div class="panel">
+            <div class="qr-container">
+                <!-- Make sure your QR code image is named qr-code.png and in the same folder -->
+                <img src="qr-code.png" alt="Scan Me">
+            </div>
+            <p class="qr-text">Some words are meant only for you.<br>Scan this when you are entirely alone. ✨</p>
+        </div>
+
+        <!-- FRONT COVER -->
+        <div class="panel">
+            <h1>Happy Birthday,</h1>
+            <h1>Komal</h1>
+            <div class="stars">✨</div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: INSIDE OF THE CARD -->
+    <div class="a4-sheet">
+        <div class="fold-line"></div>
+        
+        <!-- INSIDE LEFT (Shayari) -->
+        <div class="panel">
+            <p class="shayari">
+                Milne ki mohlat nahi, na rishte ka koi naam hai,<br>
+                Phir bhi mere har ek pehar pe, tera hi muqaam hai.<br><br>
+                Tum duniya dekhti ho un gol chashmon ke peechhe se,<br>
+                Aur meri saari hosh udaana... bas tera hi toh kaam hai. 🥀
+            </p>
+        </div>
+
+        <!-- INSIDE RIGHT (Health & Birthday Wish) -->
+        <div class="panel">
+            <div class="message-text">
+                <p style="font-weight: 500; font-family: 'Lora', serif; font-size: 15pt; color: #b76e79;">Wishing you the happiest and most beautiful birthday, Komal! ✨</p>
+                <p>I know this past week has been incredibly tough on your health, so my biggest wish for you today is a fast and complete recovery. You have such massive dreams to chase and a whole world to explore, but right now, your only job is to get your strength back.</p>
+                <p>Please promise me you will actually take care of yourself. Drink plenty of water, make sure you are eating well, and don't push yourself too hard. Take all the rest you need.</p>
+                <p>Have a peaceful, healing birthday. I am praying for your quick recovery.</p>
+            </div>
+            <div class="signature">
+                Always here for you,<br>
+                Sukhmanpreet
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
